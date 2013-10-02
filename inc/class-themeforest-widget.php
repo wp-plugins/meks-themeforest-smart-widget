@@ -127,7 +127,7 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label"><?php _e('Item categories to show:', 'mtsw'); ?>:</label><br/>
+			<label"><?php _e('Item categories to show', 'mtsw'); ?>:</label><br/>
 			<?php foreach($this->tf_cats as $cat) : ?>
 				<input id="<?php echo $this->get_field_id( $cat['name'].'_id' ); ?>" type="checkbox" name="<?php echo $this->get_field_name( 'items_type' ); ?>[]" value="<?php echo $cat['name']; ?>" <?php echo in_array($cat['name'], $instance['items_type']) ? 'checked' : ''; ?> /> <label for="<?php echo $this->get_field_id( $cat['name'].'_id' ); ?>"><?php echo $cat['title']; ?></label><br/>
 	  	<?php endforeach; ?>

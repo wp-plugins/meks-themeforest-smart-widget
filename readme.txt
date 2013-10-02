@@ -14,17 +14,17 @@ Easily display ThemeForest items inside WordPress widget.
 
 A simple and powerful WordPress plugin with which you can display ThemeForest items as a WordPress widget. Several smart options are provided for selecting and ordering. You can select ThemeForest latest items, popular items or items from one or more specific users. Optionally, you can connect items with your affiliate links as well.
 
-If you are a ThemeForest author this widget will be perfect for you.
+If you are a ThemeForest author this widget is perfect for you.
 
 ### Features
 
+* Using Envato official API
 * Supports all ThemeForest marketplace categories
 * Select latest ThemeForest items
 * Select popular ThemeForest items
 * Select items from one or more specific users
 * Order items by release date, upload date, numbers of sales, price or random
 * Add your affiliate links to ThemeForest items
-* Using Envato official API
 * Caching system integrated for better performance
 
 This plugin is created by <a href="http://mekshq.com" target="_blank">MeksHQ</a>
