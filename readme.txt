@@ -31,13 +31,13 @@ This plugin is created by <a href="http://mekshq.com" target="_blank">MeksHQ</a>
 
 == Installation ==
 
-1. Upload meks-themeforest-smart-widget.zip to plugins via WordPress admin panel or upload unzipped folder to your wp-content/plugins/ folder
-2. Activate the plugin through the "Plugins" menu in WordPress
-3. Go to Appearance -> Widgets to add and setup the widget
+1. Upload `meks-themeforest-smart-widget.zip` to plugins via WordPress admin panel or upload unzipped folder to your `wp-content/plugins/` folder
+2. Activate the plugin through the `Plugins` menu in WordPress
+3. Go to `Appearance -> Widgets` to add and setup the widget
 
 == Frequently Asked Questions ==
 
-- For any questions, error reports and suggestions please visit http://mekshq.com/contact
+For any questions, issues and suggestions please visit http://mekshq.com/contact
 
 == Screenshots ==
 
