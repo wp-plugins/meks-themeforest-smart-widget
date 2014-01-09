@@ -3,7 +3,7 @@ Contributors: mekshq
 Donate link: http://mekshq.com/
 Tags: themeforest, envato, marketplace, widget, affiliate, advertising, ad, ads, sidebar
 Requires at least: 3.0
-Tested up to: 3.6.1
+Tested up to: 3.8
 Stable tag: 1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
