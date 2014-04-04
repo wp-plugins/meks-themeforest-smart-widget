@@ -4,7 +4,7 @@ Plugin Name: Meks ThemeForest Smart Widget
 Plugin URI: http://mekshq.com
 Description: A simple and powerful WordPress plugin with which you can display ThemeForest items as a WordPress widget. Several smart options are provided for selecting and ordering. You can select ThemeForest latest items, popular items or items from one or more specific users. Optionally, you can connect items with your affiliate links as well.
 Author: MeksHQ
-Version: 1.0
+Version: 1.1
 Author URI: http://mekshq.com
 */
 
@@ -26,9 +26,10 @@ Author URI: http://mekshq.com
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-/* Define plugin paths */
+
 define('MTW_PLUGIN_DIR', trailingslashit(plugin_dir_path(__FILE__)));
 define('MTW_PLUGIN_URI', trailingslashit(plugin_dir_url(__FILE__)));
+define ('MKS_TF_WIDGET_VER', '1.1');
 
 /* Initialize Widget */
 if(!function_exists('mtw_widget_init')):
@@ -39,5 +40,12 @@ if(!function_exists('mtw_widget_init')):
 endif;
 
 add_action('widgets_init','mtw_widget_init');
+
+/* Load text domain */
+function mks_load_tf_widget_text_domain() {
+  load_plugin_textdomain( 'meks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action( 'plugins_loaded', 'mks_load_tf_widget_text_domain' );
 
 ?>
