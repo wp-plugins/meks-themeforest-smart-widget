@@ -3,7 +3,7 @@ Contributors: mekshq
 Donate link: http://mekshq.com/
 Tags: themeforest, envato, marketplace, widget, affiliate, advertising, ad, ads, sidebar
 Requires at least: 3.0
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: 1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -29,6 +29,11 @@ If you are a ThemeForest author this widget is perfect for you.
 
 This plugin is created by <a href="http://mekshq.com" target="_blank">MeksHQ</a>
 
+### Available languages
+
+* English (en_US) - default
+* Spanish (es_es) - translation by Maria Ramos <a href="http://www.webhostinghub.com/" target="_blank">WebHostingHub</a>
+
 == Installation ==
 
 1. Upload `meks-themeforest-smart-widget.zip` to plugins via WordPress admin panel or upload unzipped folder to your `wp-content/plugins/` folder
@@ -45,6 +50,9 @@ For any questions, issues and suggestions please visit http://mekshq.com/contact
 2. Widget in action
 
 == Changelog ==
+
+= 1.1.1 =
+* Added Spanish translation (es_ES)
 
 = 1.1 =
 * Added translation files (en_US)
