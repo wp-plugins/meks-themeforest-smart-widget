@@ -32,7 +32,7 @@ This plugin is created by <a href="http://mekshq.com" target="_blank">MeksHQ</a>
 ### Available languages
 
 * English (en_US) - default
-* Spanish (es_es) - translation by Maria Ramos <a href="http://www.webhostinghub.com/" target="_blank">WebHostingHub</a>
+* Spanish (es_ES) - translation by Maria Ramos <a href="http://www.webhostinghub.com/" target="_blank">WebHostingHub</a>
 
 == Installation ==
 
