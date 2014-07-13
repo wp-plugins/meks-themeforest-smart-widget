@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-04-04 20:25+0100\n"
-"PO-Revision-Date: 2014-04-04 20:25+0100\n"
+"POT-Creation-Date: 2014-07-13 15:26+0100\n"
+"PO-Revision-Date: 2014-07-13 15:26+0100\n"
 "Last-Translator: MeksHQ <support@mekshq.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,115 +13,130 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../inc/class-themeforest-widget.php:11
+#: ../inc/class-themeforest-widget.php:12
 msgid "Display ThemeForest items with this widget"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:13
+#: ../inc/class-themeforest-widget.php:14
 msgid "Meks ThemeForest Smart Widget"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:81
+#: ../inc/class-themeforest-widget.php:88
+#: ../inc/class-themeforest-widget.php:127
 msgid "View more"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:125
+#: ../inc/class-themeforest-widget.php:137
 msgid "Title"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:130
+#: ../inc/class-themeforest-widget.php:142
 msgid "Description"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:135
+#: ../inc/class-themeforest-widget.php:147
 msgid "Item categories to show"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:142
+#: ../inc/class-themeforest-widget.php:154
 msgid "Select items from"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:143
+#: ../inc/class-themeforest-widget.php:155
 msgid "Popular Items (WordPress Only)"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:144
+#: ../inc/class-themeforest-widget.php:156
 msgid "Latest Items"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:145
+#: ../inc/class-themeforest-widget.php:157
 msgid "Specific User(s)"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:149
+#: ../inc/class-themeforest-widget.php:161
 msgid "ThemeForest username(s)"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:151
+#: ../inc/class-themeforest-widget.php:163
 msgid "For multiple users, separate by comma: i.e. user1,user2,user3"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:155
+#: ../inc/class-themeforest-widget.php:168
 msgid "Number of items to show"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:160
+#: ../inc/class-themeforest-widget.php:173
 msgid "Order by"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:162
+#: ../inc/class-themeforest-widget.php:175
 msgid "Upload date"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:163
+#: ../inc/class-themeforest-widget.php:176
 msgid "Last update"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:164
+#: ../inc/class-themeforest-widget.php:177
 msgid "Number of sales"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:165
+#: ../inc/class-themeforest-widget.php:178
 msgid "Price"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:166
+#: ../inc/class-themeforest-widget.php:179
 msgid "Random"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:171
+#: ../inc/class-themeforest-widget.php:184
 msgid "Ascending"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:172
+#: ../inc/class-themeforest-widget.php:185
 msgid "Descending"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:176
+#: ../inc/class-themeforest-widget.php:189
+msgid "Exclude item(s)"
+msgstr ""
+
+#: ../inc/class-themeforest-widget.php:191
+msgid ""
+"Specify item ID to exclude specific item (separate by comma for multiple "
+"items): i.e. 8134834,7184572"
+msgstr ""
+
+#: ../inc/class-themeforest-widget.php:195
 msgid "Referal user"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:178
+#: ../inc/class-themeforest-widget.php:197
 msgid ""
 "Specify username if you want to use items as ThemeForest affiliate links"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:182
+#: ../inc/class-themeforest-widget.php:201
 msgid "More link URL"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:184
+#: ../inc/class-themeforest-widget.php:203
 msgid "Specify URL if you want to show \"more\" link under the items list"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:188
+#: ../inc/class-themeforest-widget.php:207
+msgid "More link text"
+msgstr ""
+
+#: ../inc/class-themeforest-widget.php:212
 msgid "Open items in"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:190
+#: ../inc/class-themeforest-widget.php:214
 msgid "New Window"
 msgstr ""
 
-#: ../inc/class-themeforest-widget.php:191
+#: ../inc/class-themeforest-widget.php:215
 msgid "Same Window"
 msgstr ""

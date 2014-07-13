@@ -6,6 +6,7 @@
 class MKS_ThemeForest_Widget extends WP_Widget {
   
   var $tf_cats; //ThemeForest items categories
+  var $exclude; //Wheter to exclude items or not
   
 	function MKS_ThemeForest_Widget() {
 		$widget_ops = array( 'classname' => 'mks_themeforest_widget', 'description' => __('Display ThemeForest items with this widget', 'meks') );
@@ -24,6 +25,8 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			array('name' => 'muse-templates', 'title' => 'Muse Templates'),
 			array('name' => 'typeengine-themes', 'title' => 'TypeEngine Themes')
 		);
+
+		$this->exclude = array();
 		
 		if(!is_admin()){
 		  add_action( 'wp_enqueue_scripts', array($this,'enqueue_styles'));
@@ -48,8 +51,12 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 		
 		<?php 
 				
-	  $items = array();
+	  if(isset($instance['exclude']) && !empty($instance['exclude'])){
+	  	$this->exclude = explode(',', $instance['exclude']);
+	  	$this->exclude = array_map('absint', $this->exclude);
+	  }
 	  
+	  $items = array();
 	  switch($instance['items_from']){
 	  	case 'popular': $items = $this->get_popular_items($instance['items_type']); break;
 	  	case 'latest': $items = $this->get_latest_items($instance['items_type']); break;
@@ -71,14 +78,15 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			$items = array_slice($items, 0, absint($instance['num_items']) );
 			$ref = !empty($instance['ref']) ? '?ref='.$instance['ref'] : ''; 
 			$target = !empty($instance['target']) ? $instance['target'] : '_blank';
-			?>
+	?>
 			<ul>	
 			<?php foreach($items as $item) : ?>
 				<li><a href="<?php echo $item['url'].$ref; ?>" title="<?php echo $item['item']; ?>" target="<?php echo $target; ?>"><img src="<?php echo $item['thumbnail'];?>" alt="<?php echo $item['item']; ?> "/></a></li>
 			<?php endforeach; ?>
 		 </ul>
 		 <?php if(!empty($instance['more_link_url'])): ?>
-		  <p class="mks_read_more"><a href="<?php echo esc_url($instance['more_link_url']); ?>" target="_blank" class="more"><?php _e('View more', 'meks');?></a></p>
+		 <?php $more_text = isset($instance['more_link_txt']) && !empty($instance['more_link_txt']) ? $instance['more_link_txt'] : __('View more', 'meks'); ?>
+		  <p class="mks_read_more"><a href="<?php echo esc_url($instance['more_link_url']); ?>" target="_blank" class="more"><?php echo  esc_html($more_text); ?></a></p>
 		 <?php endif; ?>
 		<?php endif; ?>
 		
@@ -92,9 +100,11 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 	  $instance['description'] = strip_tags( $new_instance['description'] );
 	  $instance['user'] = strip_tags( $new_instance['user'] );
 	  $instance['num_items'] = absint( $new_instance['num_items'] );
+	  $instance['exclude'] = strip_tags( $new_instance['exclude'] );
 	  $instance['ref'] = strip_tags( $new_instance['ref'] );
 	  $instance['orderby'] = strip_tags( $new_instance['orderby'] );
 	  $instance['more_link_url'] = $new_instance['more_link_url'];
+	  $instance['more_link_txt'] = $new_instance['more_link_txt'];
 	  $instance['order'] = $new_instance['order'];
 	  $instance['items_type'] = $new_instance['items_type'];
 	  $instance['items_from'] = $new_instance['items_from'];
@@ -113,9 +123,11 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			'num_items' => 9,
 			'orderby' => 'uploaded_on',
 			'ref' => 'meks',
-			'more_link_url' => 'http://themeforest.net/user/meks/portfolio',
+			'more_link_url' => 'http://themeforest.net/user/meks/portfolio?ref=meks',
+			'more_link_txt' => __('View more','meks'),
 			'order' => 'desc',
-			'target' => '_blank'
+			'target' => '_blank',
+			'exclude' => ''
 		);
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
@@ -150,6 +162,7 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'user' ); ?>" type="text" name="<?php echo $this->get_field_name( 'user' ); ?>" value="<?php echo strip_tags($instance['user']); ?>" class="widefat" />
 		  <small class="description"><i><?php _e('For multiple users, separate by comma: i.e. user1,user2,user3', 'meks'); ?></i></small>
 		</p>
+
 		
 		<p>
 			<label for="<?php echo $this->get_field_id( 'num_items' ); ?>"><?php _e('Number of items to show', 'meks'); ?>:</label>
@@ -170,7 +183,13 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 		<p>
 			<input id="<?php echo $this->get_field_id( 'order_asc' ); ?>" type="radio" name="<?php echo $this->get_field_name( 'order' ); ?>" value="asc" <?php checked($instance['order'],'asc');?> /> <label for="<?php echo $this->get_field_id( 'order_asc' ); ?>"><?php _e('Ascending', 'meks'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'order_desc' ); ?>" type="radio" name="<?php echo $this->get_field_name( 'order' ); ?>" value="desc" <?php checked($instance['order'],'desc');?> /> <label for="<?php echo $this->get_field_id( 'order_desc' ); ?>"><?php _e('Descending', 'meks'); ?></label>
-	  </p>
+	    </p>
+
+	    <p>
+			<label for="<?php echo $this->get_field_id( 'exclude' ); ?>"><?php _e('Exclude item(s)', 'meks'); ?>:</label>
+			<input id="<?php echo $this->get_field_id( 'exclude' ); ?>" type="text" name="<?php echo $this->get_field_name( 'exclude' ); ?>" value="<?php echo strip_tags($instance['exclude']); ?>" class="widefat" />
+		  <small class="howto"><?php _e('Specify item ID to exclude specific item (separate by comma for multiple items): i.e. 8134834,7184572', 'meks'); ?></small>
+		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id( 'ref' ); ?>"><?php _e('Referal user', 'meks'); ?>:</label>
@@ -182,6 +201,11 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'more_link_url' ); ?>"><?php _e('More link URL', 'meks'); ?>:</label>
 			<input id="<?php echo $this->get_field_id( 'more_link_url' ); ?>" type="text" name="<?php echo $this->get_field_name( 'more_link_url' ); ?>" value="<?php echo esc_attr($instance['more_link_url']); ?>" class="widefat" />
 			<small class="description"><i><?php _e('Specify URL if you want to show "more" link under the items list', 'meks'); ?></i></small>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'more_link_txt' ); ?>"><?php _e('More link text', 'meks'); ?>:</label>
+			<input id="<?php echo $this->get_field_id( 'more_link_txt' ); ?>" type="text" name="<?php echo $this->get_field_name( 'more_link_txt' ); ?>" value="<?php echo esc_attr($instance['more_link_txt']); ?>" class="widefat" />
 		</p>
 		
 		<p>
@@ -204,13 +228,14 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 	  	if(empty($cached)){
 				
 				$api_url = 'http://marketplace.envato.com/api/v3/new-files-from-user:'.$user.',themeforest.json';
-				$response = wp_remote_get( $api_url );  
+				$response = wp_remote_get( $api_url );
 			
 				if ( is_wp_error( $response ) || ( wp_remote_retrieve_response_code( $response ) != 200 ) ) {  
 			    continue;
 				}  
 			   
 				$item_data = json_decode( wp_remote_retrieve_body( $response ), true );
+
 				if(isset($item_data['new-files-from-user']) && !empty($item_data['new-files-from-user'])){
 					$item_data_ready = $item_data['new-files-from-user'];
 			  	//Cache data for one day
@@ -226,12 +251,14 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			$type_check = count($type) == count($this->tf_cats) ? false : true;
 			
 			foreach($item_data_ready as $item){
-				if($type_check){
-					if($this->item_type_check(trim($item['category']),$type)){
+				if( !in_array($item['id'],$this->exclude) ) {
+					if($type_check){
+						if($this->item_type_check(trim($item['category']),$type)){
+							$items[] = $item;
+						}
+					} else {
 						$items[] = $item;
 					}
-				} else {
-					$items[] = $item;
 				}
 			}
 	  }
@@ -273,12 +300,14 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			$type_check = count($type) == count($this->tf_cats) ? false : true;
 			
 			foreach($item_data_ready as $item){
-				if($type_check){
-					if($this->item_type_check(trim($item['category']),$type)){
+				if( !in_array($item['id'],$this->exclude) ) {
+					if($type_check){
+						if($this->item_type_check(trim($item['category']),$type)){
+							$items[] = $item;
+						}
+					} else {
 						$items[] = $item;
 					}
-				} else {
-					$items[] = $item;
 				}
 			}
 	          
@@ -317,7 +346,9 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			
 				    
 			foreach($item_data_ready as $item){
+				if( !in_array($item['id'],$this->exclude) ) {
 				   	$items[] = $item;
+				}
 			}
 	  }
     
