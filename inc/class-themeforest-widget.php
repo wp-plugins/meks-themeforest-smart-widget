@@ -79,7 +79,7 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			$ref = !empty($instance['ref']) ? '?ref='.$instance['ref'] : ''; 
 			$target = !empty($instance['target']) ? $instance['target'] : '_blank';
 	?>
-			<ul>	
+			<ul class="mks_themeforest_widget_ul">	
 			<?php foreach($items as $item) : ?>
 				<li><a href="<?php echo $item['url'].$ref; ?>" title="<?php echo $item['item']; ?>" target="<?php echo $target; ?>"><img src="<?php echo $item['thumbnail'];?>" alt="<?php echo $item['item']; ?> "/></a></li>
 			<?php endforeach; ?>

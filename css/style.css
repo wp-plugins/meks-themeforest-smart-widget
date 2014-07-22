@@ -1,19 +1,19 @@
-.mks_themeforest_widget ul li{
-	width: 80px;
+ul.mks_themeforest_widget_ul  li{
+	width: 80px !important;
 	height: 80px;
-	display: inline-block;
-	margin: 0 2px 4px 2px;
+	display: inline-block !important;
+	margin: 0 2px 4px 2px !important;
 	padding: 0;
 	vertical-align: top;
 }
 
-.mks_themeforest_widget ul li img{
+ul.mks_themeforest_widget_ul  li img{
 	width: 80px;
 	height: 80px;
 	margin: 0;
 	padding: 0;
 }
-.mks_themeforest_widget ul,.mks_read_more{
+.mks_read_more{
 	text-align: center;
 }
 .mks_read_more{margin-top: 10px;}

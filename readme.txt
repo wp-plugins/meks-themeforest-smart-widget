@@ -3,8 +3,8 @@ Contributors: mekshq
 Donate link: http://mekshq.com/
 Tags: themeforest, envato, marketplace, widget, affiliate, advertising, ad, ads, sidebar
 Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 1.1.2
+Tested up to: 3.9.1
+Stable tag: 1.1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -50,6 +50,9 @@ For any questions, issues and suggestions please visit http://mekshq.com/contact
 2. Widget in action
 
 == Changelog ==
+
+= 1.1.3 =
+* Improved: Compatibility with themes not developed on common WordPress coding standards
 
 = 1.1.2 =
 * Added option to exclude specific items by ID
