@@ -2,7 +2,7 @@ ul.mks_themeforest_widget_ul  li{
 	width: 80px !important;
 	height: 80px;
 	display: inline-block !important;
-	margin: 0 2px 4px 2px !important;
+	margin: 0 2px 4px 0;
 	padding: 0;
 	vertical-align: top;
 }
