@@ -7,6 +7,7 @@ class MKS_ThemeForest_Widget extends WP_Widget {
   
   var $tf_cats; //ThemeForest items categories
   var $exclude; //Wheter to exclude items or not
+  var $defaults;
   
 	function MKS_ThemeForest_Widget() {
 		$widget_ops = array( 'classname' => 'mks_themeforest_widget', 'description' => __('Display ThemeForest items with this widget', 'meks') );
@@ -31,12 +32,29 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 		if(!is_admin()){
 		  add_action( 'wp_enqueue_scripts', array($this,'enqueue_styles'));
 		}
+
+		$this->defaults = array( 
+			'title' => 'ThemeForest',
+			'description' => '',
+			'items_type' => array('wordpress'),
+			'items_from' => 'user',
+			'user' => 'meks',
+			'num_items' => 9,
+			'orderby' => 'uploaded_on',
+			'ref' => 'meks',
+			'more_link_url' => 'http://themeforest.net/user/meks/portfolio?ref=meks',
+			'more_link_txt' => __('View more','meks'),
+			'order' => 'desc',
+			'target' => '_blank',
+			'exclude' => ''
+		);
+			
 	}
 
 	
 	function widget( $args, $instance ) {
 		extract( $args );
-		
+		$instance = wp_parse_args( (array) $instance, $this->defaults );
 		$title = apply_filters('widget_title', $instance['title'] );
 		
 		echo $before_widget;
@@ -114,24 +132,7 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 
 	function form( $instance ) {
 
-		$defaults = array( 
-			'title' => 'ThemeForest',
-			'description' => '',
-			'items_type' => array('wordpress'),
-			'items_from' => 'user',
-			'user' => 'meks',
-			'num_items' => 9,
-			'orderby' => 'uploaded_on',
-			'ref' => 'meks',
-			'more_link_url' => 'http://themeforest.net/user/meks/portfolio?ref=meks',
-			'more_link_txt' => __('View more','meks'),
-			'order' => 'desc',
-			'target' => '_blank',
-			'exclude' => ''
-		);
-			
-		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
-		
+		$instance = wp_parse_args( (array) $instance, $this->defaults ); ?>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title', 'meks'); ?>:</label>
@@ -160,7 +161,7 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'user' ); ?>"><?php _e('ThemeForest username(s)', 'meks'); ?>:</label>
 			<input id="<?php echo $this->get_field_id( 'user' ); ?>" type="text" name="<?php echo $this->get_field_name( 'user' ); ?>" value="<?php echo strip_tags($instance['user']); ?>" class="widefat" />
-		  <small class="description"><i><?php _e('For multiple users, separate by comma: i.e. user1,user2,user3', 'meks'); ?></i></small>
+		  <small class="howto"><?php _e('For multiple users, separate by comma: i.e. user1,user2,user3', 'meks'); ?></small>
 		</p>
 
 		
@@ -194,13 +195,13 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'ref' ); ?>"><?php _e('Referal user', 'meks'); ?>:</label>
 			<input id="<?php echo $this->get_field_id( 'ref' ); ?>" type="text" name="<?php echo $this->get_field_name( 'ref' ); ?>" value="<?php echo strip_tags($instance['ref']); ?>" class="widefat" />
-			<small class="description"><i><?php _e('Specify username if you want to use items as ThemeForest affiliate links', 'meks'); ?></i></small>
+			<small class="howto"><?php _e('Specify username if you want to use items as ThemeForest affiliate links', 'meks'); ?></small>
 		</p>		
 		
 		<p>
 			<label for="<?php echo $this->get_field_id( 'more_link_url' ); ?>"><?php _e('More link URL', 'meks'); ?>:</label>
 			<input id="<?php echo $this->get_field_id( 'more_link_url' ); ?>" type="text" name="<?php echo $this->get_field_name( 'more_link_url' ); ?>" value="<?php echo esc_attr($instance['more_link_url']); ?>" class="widefat" />
-			<small class="description"><i><?php _e('Specify URL if you want to show "more" link under the items list', 'meks'); ?></i></small>
+			<small class="howto"><?php _e('Specify URL if you want to show "more" link under the items list', 'meks'); ?></small>
 		</p>
 
 		<p>

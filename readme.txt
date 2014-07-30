@@ -4,7 +4,7 @@ Donate link: http://mekshq.com/
 Tags: themeforest, envato, marketplace, widget, affiliate, advertising, ad, ads, sidebar
 Requires at least: 3.0
 Tested up to: 3.9.1
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -27,7 +27,7 @@ If you are a ThemeForest author this widget is perfect for you.
 * Add your affiliate links to ThemeForest items
 * Caching system integrated for better performance
 
-This plugin is created by <a href="http://mekshq.com" target="_blank">MeksHQ</a>
+ThemeForest Smart Widget plugin is created by <a href="http://mekshq.com" target="_blank">MeksHQ</a>
 
 ### Available languages
 
@@ -50,6 +50,9 @@ For any questions, issues and suggestions please visit http://mekshq.com/contact
 2. Widget in action
 
 == Changelog ==
+
+= 1.1.5 =
+* Full compatibility with new WordPress customizer in WP 3.9+
 
 = 1.1.4 =
 * Improved: Minor CSS tweaks
