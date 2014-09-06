@@ -33,6 +33,7 @@ ThemeForest Smart Widget plugin is created by <a href="http://mekshq.com" target
 
 * English (en_US) - default
 * Spanish (es_ES) - translation by Maria Ramos <a href="http://www.webhostinghub.com/" target="_blank">WebHostingHub</a>
+* Serbian (sr_RS) - translation by Ogi Djuraskovic <a href="http://firstsiteguide.com/" target="_blank">firstsiteguide.com</a>
 
 == Installation ==
 
