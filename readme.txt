@@ -29,6 +29,10 @@ If you are a ThemeForest author this widget is perfect for you.
 
 ThemeForest Smart Widget plugin is created by <a href="http://mekshq.com" target="_blank">MeksHQ</a>
 
+### Live preview?
+
+You can see Meks ThemeForest Smart Widget live example on our <a href="http://mekshq.com/demo/throne" target="_blank">Throne theme demo website</a>
+
 ### Available languages
 
 * English (en_US) - default
