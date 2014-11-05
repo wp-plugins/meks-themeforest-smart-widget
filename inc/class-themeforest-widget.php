@@ -48,6 +48,9 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 			'target' => '_blank',
 			'exclude' => ''
 		);
+
+		//Allow themes or plugins to modify default parameters
+		$this->defaults = apply_filters('mks_tf_widget_modify_defaults', $this->defaults);
 			
 	}
 
