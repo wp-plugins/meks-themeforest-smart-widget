@@ -196,7 +196,7 @@ class MKS_ThemeForest_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id( 'ref' ); ?>"><?php _e('Referal user', 'meks'); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'ref' ); ?>"><?php _e('Referral user', 'meks'); ?>:</label>
 			<input id="<?php echo $this->get_field_id( 'ref' ); ?>" type="text" name="<?php echo $this->get_field_name( 'ref' ); ?>" value="<?php echo strip_tags($instance['ref']); ?>" class="widefat" />
 			<small class="howto"><?php _e('Specify username if you want to use items as ThemeForest affiliate links', 'meks'); ?></small>
 		</p>		
